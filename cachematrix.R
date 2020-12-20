@@ -2,11 +2,11 @@
 ## functions do
 
 ## Write a short comment describing this function
-
+#makeCacheMatrix creates an R objects that stores a matrix and its inverse matrix
 makeCacheMatrix <- function(x = matrix()) {
   #initialize object
   m <- NULL
-  #set x to x and reset m
+  #set y to x and reset m
   set <- function(y) {
     x <<- y
     m <<- NULL
@@ -19,7 +19,10 @@ makeCacheMatrix <- function(x = matrix()) {
 
 
 ## Write a short comment describing this function
-
+#cacheSolve requires an argument returned from makeCacheMatrix. It will check
+#if inverse matrix is already computed. If so, it will return it, otherwise it
+#will create it. Basically this function generates or retrives the inverse matrix
+#from an object of type makeCacheMatrix.
 cacheSolve <- function(x, ...) {
   ## Return a matrix that is the inverse of 'x'
   # check if mean exisits
@@ -34,9 +37,9 @@ cacheSolve <- function(x, ...) {
   m
 }
 
-
-#test matrix
+#Additional own comments
+#test matrix m1:
 #m1 <- matrix(c(1/2, -1/4, -1, 3/4), nrow = 2, ncol = 2)
 #remember: 1.st use makeCacheMatrix then cacheSolve to avoid atomic vector error
-#Common errors are lapackroutine --< matrix needs to have a inverse matrix,
+#Common errors are lapackroutine --> matrix needs to have a inverse matrix,
 #remember that some don't
